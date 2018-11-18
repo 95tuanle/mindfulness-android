@@ -61,22 +61,19 @@ public class BreatheActivity extends AppCompatActivity {
         long sessionDuration = SystemClock.elapsedRealtime() - stopWatch.getBase();
         stopWatch.stop();
         stopWatch.setBase(SystemClock.elapsedRealtime());
-
         SessionRepository sessionRepository = new SessionRepository(getApplicationContext());
         sessionRepository.addSession(new Session(sessionDuration, Calendar.getInstance().getTime()));
         sessionRepository.getAllSessions().observe(this, new Observer<List<Session>>() {
-
             @Override
             public void onChanged(@Nullable List<Session> sessions) {
-                System.out.println("STOPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP");
-                for (Session session: sessions) {
-                    System.out.println(session.getId() + "  " + session.getDuration() + " " + session.getDateAdded());
-                }
+                updateDWMTexts(sessions);
             }
         });
-
-
         startButton.setEnabled(true);
         endButton.setEnabled(false);
+    }
+
+    private void updateDWMTexts(List<Session> sessions) {
+
     }
 }
