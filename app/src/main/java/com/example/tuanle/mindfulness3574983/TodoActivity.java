@@ -3,6 +3,7 @@ package com.example.tuanle.mindfulness3574983;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.Objects;
 
@@ -19,5 +20,9 @@ public class TodoActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         finish();
         return super.onOptionsItemSelected(item);
+    }
+
+    public void createButton(View view) {
+
     }
 }
