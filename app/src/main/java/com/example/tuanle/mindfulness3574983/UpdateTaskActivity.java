@@ -35,7 +35,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
 
         if (taskToBeUpdated.isStatus()) {
             done.toggle();
-        } else if (taskToBeUpdated.getType().equals("br")) {
+        } else {
             notDone.toggle();
         }
 

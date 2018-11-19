@@ -75,13 +75,12 @@ public class TodoActivity extends AppCompatActivity {
         taskList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent intent = new Intent(TodoActivity.this, UpdateTaskActivity.class);
-//                intent.putExtra("task", tasks.get(position));
-//                startActivity(intent);
-
+                Intent intent = new Intent(TodoActivity.this, BreatheActivity.class);
+                startActivity(intent);
             }
         });
 
+        //In order to edit the status, please long press to a table cell
         taskList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
