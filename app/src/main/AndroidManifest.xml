@@ -25,7 +25,8 @@
         <activity
             android:name=".CreateTaskActivity"
             android:label="Create Task" />
-        <activity android:name=".UpdateTaskActivity"></activity>
+        <activity android:name=".UpdateTaskActivity"
+            android:label="Update Task Status" />
     </application>
 
 </manifest>
