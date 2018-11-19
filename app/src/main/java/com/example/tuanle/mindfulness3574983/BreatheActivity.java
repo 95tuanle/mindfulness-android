@@ -46,6 +46,24 @@ public class BreatheActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        sessionRepository.getAllSessions().observe(this, new Observer<List<Session>>() {
+            @Override
+            public void onChanged(@Nullable List<Session> sessions) {
+                updateDWMTexts(sessions, Calendar.getInstance());
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        long sessionDuration = SystemClock.elapsedRealtime() - stopWatch.getBase();
+        sessionRepository.addSession(new Session(sessionDuration, Calendar.getInstance().getTime()));
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         finish();
         return super.onOptionsItemSelected(item);
@@ -102,24 +120,6 @@ public class BreatheActivity extends AppCompatActivity {
         today.setText(buildDuration(dayDuration));
         thisWeek.setText(buildDuration(weekDuration));
         thisMonth.setText(buildDuration(monthDuration));
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        sessionRepository.getAllSessions().observe(this, new Observer<List<Session>>() {
-            @Override
-            public void onChanged(@Nullable List<Session> sessions) {
-                updateDWMTexts(sessions, Calendar.getInstance());
-            }
-        });
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        long sessionDuration = SystemClock.elapsedRealtime() - stopWatch.getBase();
-        sessionRepository.addSession(new Session(sessionDuration, Calendar.getInstance().getTime()));
     }
 
     private String buildDuration(long duration) {

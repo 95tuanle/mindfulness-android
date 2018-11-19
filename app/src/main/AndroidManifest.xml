@@ -16,8 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BreatheActivity" android:label="@string/breathe"/>
-        <activity android:name=".TodoActivity" android:label="@string/todo_list"></activity>
+        <activity
+            android:name=".BreatheActivity"
+            android:label="@string/breathe" />
+        <activity
+            android:name=".TodoActivity"
+            android:label="@string/todo_list" />
+        <activity
+            android:name=".CreateTaskActivity"
+            android:label="Create Task" />
+        <activity android:name=".UpdateTaskActivity"></activity>
     </application>
 
 </manifest>
